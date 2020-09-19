@@ -1,12 +1,9 @@
-import React, { useEffect } from 'react';
-import { jobService } from './services/jobService';
+import React from 'react';
+import Root from './pages/workspace/index'
+import 'antd/dist/antd.css';
 
 const App: React.FC<any> = () => {
-  useEffect(() => {
-    jobService.loadTransaction('dhdfssdf').subscribe();
-  }, []);
-
-  return <div></div>;
+  return <Root />;
 };
 
 export default App;
