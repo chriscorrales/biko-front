@@ -1,11 +1,15 @@
-import React, { memo } from 'react';
-import { Container } from './styles';
+import React, { memo } from "react";
 
-import { useObservable } from 'react-use-observable';
-
+import { useObservable } from "react-use-observable";
+import { IJob } from "interface/Job";
+import { jobService } from "services/jobService";
+import { Container } from "./styles";
 
 const Root: React.FC = () => {
-  const [job] = useObservable<IJob>(() => jobService.loadTransaction('3c2be1d7-0bae-4578-993f-9f010595909a'), []);
+  const [job] = useObservable<IJob>(
+    () => jobService.loadTransaction("3c2be1d7-0bae-4578-993f-9f010595909a"),
+    []
+  );
 
   if (!job) {
     return null;
@@ -17,7 +21,6 @@ const Root: React.FC = () => {
       <p>{job.description}</p>
     </Container>
   );
-
-}
+};
 
 export default memo(Root);
