@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const CracoLessPlugin = require("craco-less");
+const CracoLessPlugin = require('craco-less');
 
 module.exports = {
   plugins: [
@@ -9,8 +9,14 @@ module.exports = {
         lessLoaderOptions: {
           lessOptions: {
             modifyVars: {
-              //   "@primary-color": "#1890ff", // primary color for all components
-              //   "@link-color": "#1890ff", // link color
+              '@primary-color': '#20D7B2', // primary color for all components
+              '@component-background': '#3C444D',
+              '@text-color-inverse': '#20D5B1',
+              '@text-selection-bg': '#333A41',
+              '@menu-item-active-bg': '#333A41',
+              '@layout-body-background': '#30363D',
+              '@layout-header-background': '#3C444D',
+
               //   "@success-color": "#52c41a", // success state color
               //   "@warning-color": "#faad14", // warning state color
               //   "@error-color": "#f5222d", // error state color

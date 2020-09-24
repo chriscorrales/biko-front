@@ -1,5 +1,5 @@
-import React from "react";
-import { Layout, Row, Typography } from "antd";
+import React from 'react';
+import { Layout, Row, Typography } from 'antd';
 
 const Header: React.FC = () => {
   return (
