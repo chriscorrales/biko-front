@@ -1,9 +1,14 @@
-import React from 'react';
-import Root from './pages/workspace/index'
-import 'antd/dist/antd.css';
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import Routes from "./Routes";
+import "./App.less";
 
-const App: React.FC<any> = () => {
-  return <Root />;
-};
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
+  );
+}
 
 export default App;

@@ -25,7 +25,6 @@
   "editor.formatOnSave": false,
   "editor.formatOnType": true,
   "typescriptHero.imports.organizeOnSave": false,
-  "typescript.tsdk": "node_modules/typescript/lib",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   }

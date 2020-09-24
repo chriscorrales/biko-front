@@ -1,9 +1,7 @@
 import React, { memo } from 'react';
 import { Container } from './styles';
 
-import { IJob } from 'src/interface/Job';
 import { useObservable } from 'react-use-observable';
-import { jobService } from 'src/services/jobService';
 
 
 const Root: React.FC = () => {
