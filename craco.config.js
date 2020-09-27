@@ -9,13 +9,29 @@ module.exports = {
         lessLoaderOptions: {
           lessOptions: {
             modifyVars: {
-              '@primary-color': '#20D7B2', // primary color for all components
+              '@primary-color': '#20D7B2',
+              '@body-background': '#30363D',
               '@component-background': '#3C444D',
-              '@text-color-inverse': '#20D5B1',
+              '@heading-color': '#20D7B2',
+              '@text-color': '#CBCFD4',
+              '@text-color-secondary': '#76798A',
+              '@text-color-inverse': '#474F5A',
+              '@text-color-dark': '#CBCFD4',
+              '@text-color-secondary-dark': '#A0A4AA',
               '@text-selection-bg': '#333A41',
-              '@menu-item-active-bg': '#333A41',
               '@layout-body-background': '#30363D',
               '@layout-header-background': '#3C444D',
+              '@border-color-split': '#50575E',
+              '@border-color-base': '#30363D',
+              '@border-radius-base': '6px',
+              '@border-radius-sm': '6px',
+              '@input-bg': '#FFFFFF',
+              '@input-color': '#747D88',
+              '@input-border-color': '#FFFFFF',
+              '@input-placeholder-color': '#CBCFD4',
+              '@checkbox-size': '18px',
+              '@btn-text-shadow': 'none',
+              '@menu-item-active-bg': '#333A41',
 
               //   "@success-color": "#52c41a", // success state color
               //   "@warning-color": "#faad14", // warning state color

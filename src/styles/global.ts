@@ -1,25 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
-
-const bodyStyle = window.getComputedStyle(document.body);
-
-const marginTop = bodyStyle.getPropertyValue('margin-top');
-const marginLeft = bodyStyle.getPropertyValue('margin-left');
-const marginRight = bodyStyle.getPropertyValue('margin-right');
+import 'antd/dist/antd.dark.less';
 
 export default createGlobalStyle`
-  .biko-root {
-    margin: 0;
-    padding: 0;
-    background-color: white;
-    box-shadow: 0px 0px 5px #333;
-    width: 100%;
-    margin-top: -${marginTop};
-    margin-left: -${marginLeft};
-    margin-right: -${marginRight};
-    position: absolute;
+  .ant-layout-sider-trigger {
+    background: #333A41;
   }
 
-  .biko-root * {
-    box-sizing: border-box;
+  .ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left {
+    border-right: 1px solid #20D7B2;
   }
-`
+`;

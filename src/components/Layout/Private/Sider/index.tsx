@@ -4,6 +4,7 @@ import BriefcaseOutlineIcon from 'mdi-react/BriefcaseOutlineIcon';
 import HomeOutlineIcon from 'mdi-react/HomeOutlineIcon';
 import StarOutlineIcon from 'mdi-react/StarOutlineIcon';
 import { Item } from './styles';
+import UserHeader from './UserHeader';
 
 const Sider: React.FC = () => {
   const [collapsed, setCollapsed] = useState(true);
@@ -14,14 +15,7 @@ const Sider: React.FC = () => {
       collapsed={collapsed}
       onCollapse={() => setCollapsed((prev) => !prev)}
     >
-      <div
-        style={{
-          width: '100%',
-          maxWidth: '200px',
-          height: '64px',
-          background: '#fff',
-        }}
-      />
+      <UserHeader />
       <Menu defaultSelectedKeys={['1']} mode="inline">
         <Item key="1" icon={<HomeOutlineIcon className="anticon" />}>
           Início
