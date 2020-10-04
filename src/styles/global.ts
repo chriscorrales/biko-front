@@ -7,6 +7,10 @@ export default createGlobalStyle`
   }
 
   .ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left {
-    border-right: 1px solid #20D7B2;
+    border-right: none;
+  }
+
+  .ant-badge-count {
+    background: #20d7b2;
   }
 `;
