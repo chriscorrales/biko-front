@@ -11,8 +11,8 @@ const Header: React.FC = () => {
     <Container>
       <Logo>
         <BikoLogo />
-        <Badge overflowCount={99} count={127}>
-          <BellOutlineIcon size="35" />
+        <Badge overflowCount={9} count={7}>
+          <BellOutlineIcon size="28" />
         </Badge>
       </Logo>
       <User>
