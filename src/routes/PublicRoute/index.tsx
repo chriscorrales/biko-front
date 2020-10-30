@@ -1,6 +1,6 @@
+import Public from 'components/shared/Public';
 import React from 'react';
 import { Route, RouteProps } from 'react-router-dom';
-import { Public } from '../../components/Layout';
 
 const PublicRoute: React.FC<RouteProps> = ({ children, ...rest }) => {
   return (

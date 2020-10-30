@@ -1,21 +1,30 @@
 import React from 'react';
-import { Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Home from '../pages/Home';
+import Register from 'pages/Register';
 import Login from '../pages/Login';
-import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
+import FreelancerPrivateRoute from './Freelancer';
+import RequestorPrivateRoute from './Requestor';
 
 const Routes: React.FC = () => {
   return (
-    <Switch>
-      <PublicRoute exact path="/">
-        <Login />
-      </PublicRoute>
-      <PrivateRoute exact path="/home">
-        <Home />
-      </PrivateRoute>
-    </Switch>
+    <>
+      <BrowserRouter>
+        <PublicRoute exact path="/">
+          <Login />
+        </PublicRoute>
+        <PublicRoute exact path="/register">
+          <Register />
+        </PublicRoute>
+      </BrowserRouter>
+      <BrowserRouter basename="/freelancer">
+        <FreelancerPrivateRoute />
+      </BrowserRouter>
+      <BrowserRouter basename="/requestor">
+        <RequestorPrivateRoute />
+      </BrowserRouter>
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
-import { Private } from "components/Layout";
-import React from "react";
-import { Redirect, Route, RouteProps } from "react-router-dom";
+import Private from 'components/LayoutRequestor/Private';
+import React from 'react';
+import { Redirect, Route, RouteProps } from 'react-router-dom';
 
 const PrivateRoute: React.FC<RouteProps> = ({ children, ...rest }) => {
   const isAuthenticated = true;
@@ -14,7 +14,7 @@ const PrivateRoute: React.FC<RouteProps> = ({ children, ...rest }) => {
         ) : (
           <Redirect
             to={{
-              pathname: "/login",
+              pathname: '/login',
               state: { from: location },
             }}
           />

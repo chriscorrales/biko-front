@@ -33,4 +33,8 @@ export default createGlobalStyle`
   .ant-avatar {
     background: #20D7B2;
   }
+
+  .ant-layout-header {
+    padding: 0;
+  }
 `;
