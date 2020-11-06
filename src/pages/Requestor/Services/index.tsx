@@ -19,7 +19,11 @@ const ServicesPage: React.FC = () => {
 
   return (
     <Container>
-      <Input.Search size="large" placeholder="Pesquise aqui" />
+      <Input.Search
+        style={{ marginBottom: 24 }}
+        size="large"
+        placeholder="Pesquise aqui"
+      />
       <Row gutter={[24, 24]}>
         {jobs.map((job) => (
           <Col span={8}>

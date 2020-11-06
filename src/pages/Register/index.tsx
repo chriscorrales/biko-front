@@ -1,6 +1,5 @@
 import { Col, Form } from 'antd';
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import { useObservable } from 'react-use-observable';
 import StepsVertical from './Steps';
 import { BackgroundGradientRow, Card } from './styles';
@@ -12,7 +11,6 @@ import AcessStep from './AcessStep';
 import { enStep, stepService } from './stepsServices';
 
 const Register: React.FC = () => {
-  const { push } = useHistory();
   const [current] = useObservable(() => stepService.getCurrentStep(), []);
 
   if (typeof current !== 'number') {

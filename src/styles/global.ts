@@ -34,6 +34,10 @@ export default createGlobalStyle`
     background: #20D7B2;
   }
 
+  .ant-card-body {
+    height: 100%;
+  }
+
   .ant-layout-header {
     padding: 0;
   }

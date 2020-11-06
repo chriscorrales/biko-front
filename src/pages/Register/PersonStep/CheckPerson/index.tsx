@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import RequestorIcon from 'components/shared/icons/Requestor';
 import React from 'react';
 
 import { Container } from './styles';

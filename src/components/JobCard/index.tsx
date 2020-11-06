@@ -4,7 +4,7 @@ import { IJob } from 'interface/Job';
 import Status from 'components/shared/Status';
 import { Space, Typography } from 'antd';
 import AvatarGroup from 'components/Avatar';
-import { Container, Description, Footer, Title } from './styles';
+import { Container, Footer, Title } from './styles';
 
 interface IProps {
   job: IJob;

@@ -32,7 +32,6 @@ export const UserInformation = styled.div`
     font-size: 1em;
     hyphens: manual;
     line-height: normal;
-    word-break: break-all;
     margin: 0;
   }
 

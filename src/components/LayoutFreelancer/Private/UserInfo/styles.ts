@@ -1,38 +1,18 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  width: 100%;
-  max-width: 200px;
-  background: #3c444d;
-`;
-
-export const Logo = styled.div`
-  width: 100%;
-  max-width: 200px;
-  height: 92px;
-  display: flex;
-
-  justify-content: space-between;
-  border-bottom: 1px #30363d solid;
-  align-items: flex-end;
-  padding: 24px;
-`;
-
 export const User = styled.div`
-  width: 100%;
+  width: 150px;
   display: flex;
-  padding: 24px;
   justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
 `;
 
 export const UserInformation = styled.div`
-  width: 50%;
   & p {
     color: #fff;
     font-size: 1em;
-    hyphens: manual;
     line-height: normal;
-    word-break: break-all;
     margin: 0;
   }
 
@@ -42,6 +22,7 @@ export const UserInformation = styled.div`
     margin: 0;
     display: flex;
     align-items: center;
+    line-height: 0;
 
     svg {
       width: 16px;
@@ -49,10 +30,9 @@ export const UserInformation = styled.div`
     }
   }
 `;
-
 export const UserImage = styled.div`
-  width: 65px;
-  height: 65px;
+  width: 50px;
+  height: 50px;
   background: linear-gradient(90deg, #20d4b1 0%, #0f4b9c 186.42%);
   border-radius: 50px;
   display: flex;

@@ -1,4 +1,4 @@
-import { Button, Col, Form, Input, Radio, Row } from 'antd';
+import { Button, Col, Form, Input, Row } from 'antd';
 import React from 'react';
 import { stepService } from '../stepsServices';
 import { Container } from './styles';

@@ -20,7 +20,7 @@ export const BackgroundGradientRow = styled(Row)`
 `;
 
 export const CardLogin = styled(Card)`
-  height: 450px;
+  height: 470px;
 `;
 
 export const ItemCenter = styled.div`

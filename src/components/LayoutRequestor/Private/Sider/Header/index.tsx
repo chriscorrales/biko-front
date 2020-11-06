@@ -4,9 +4,19 @@ import StarIcon from 'mdi-react/StarIcon';
 import BellOutlineIcon from 'mdi-react/BellOutlineIcon';
 import BikoLogo from 'components/shared/icons/BikoLogo';
 import { Badge } from 'antd';
+import { useObservable } from 'react-use-observable';
+import { userService } from 'services/userService';
 import { Container, Logo, User, UserImage, UserInformation } from './styles';
 
 const Header: React.FC = () => {
+  const [user] = useObservable(() => userService.getUser(), []);
+
+  if (!user) {
+    return null;
+  }
+
+  const name = `${user.fullName.split(' ')[0]} ${user.fullName.split(' ')[1]}`;
+
   return (
     <Container>
       <Logo>
@@ -17,10 +27,10 @@ const Header: React.FC = () => {
       </Logo>
       <User>
         <UserImage>
-          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.freepik.com%2Ffotos-gratis%2Fhacker-de-homem-indiano-usando-computadores-para-roubar-dados-na-mesa_231208-3619.jpg%3Fsize%3D626%26ext%3Djpg&f=1&nofb=1" />
+          <img src={user.image} />
         </UserImage>
         <UserInformation>
-          <p>ijsiwqdwqdjias wiqduwhuwfhuq</p>
+          <p>{name}</p>
           <span>
             <StarIcon />
             4,8

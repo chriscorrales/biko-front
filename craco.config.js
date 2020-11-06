@@ -32,10 +32,10 @@ module.exports = {
               '@checkbox-size': '18px',
               '@btn-text-shadow': 'none',
               '@menu-item-active-bg': '#333A41',
+              '@error-color': '#ff5f67', // error state color
+              '@success-color': '#52c41a', // success state color
 
-              //   "@success-color": "#52c41a", // success state color
-              //   "@warning-color": "#faad14", // warning state color
-              //   "@error-color": "#f5222d", // error state color
+              '@warning-color': '#faad14', // warning state color
               //   "@font-size-base": "14px", // major text font size
               //   "@heading-color": "rgba(0, 0, 0, 0.85)", // heading text color
               //   "@text-color": "#fff", // major text color

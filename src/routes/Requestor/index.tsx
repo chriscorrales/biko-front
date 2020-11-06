@@ -19,7 +19,9 @@ const RequestorPrivateRoute: React.FC = () => {
   return (
     <Switch>
       {routes.map((route) => (
-        <PrivateRoute path={route.path}>{route.component}</PrivateRoute>
+        <PrivateRoute key={route.path} path={route.path}>
+          {route.component}
+        </PrivateRoute>
       ))}
     </Switch>
   );
