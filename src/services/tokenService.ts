@@ -16,12 +16,10 @@ class TokenService {
   }
 
   public getToken(): Observable<string> {
-    console.log('GET TOKEN', this.token$.value);
     return this.token$.asObservable();
   }
 
   public setToken(token: string) {
-    console.log('SET TOKEN', token);
     this.token$.next(token);
     storageService.set<string>('token', token).subscribe();
   }

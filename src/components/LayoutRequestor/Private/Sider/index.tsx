@@ -11,14 +11,8 @@ const Sider: React.FC = () => {
     <Layout.Sider theme="dark">
       <Header />
       <Menu defaultSelectedKeys={['1']} mode="inline">
-        <Item key="1" icon={<HomeOutlineIcon className="anticon" />}>
-          Início
-        </Item>
-        <Item icon={<BriefcaseOutlineIcon className="anticon" />} key="2">
+        <Item icon={<BriefcaseOutlineIcon className="anticon" />} key="1">
           Meus Serviços
-        </Item>
-        <Item key="3" icon={<StarOutlineIcon className="anticon" />}>
-          Avaliações
         </Item>
       </Menu>
     </Layout.Sider>

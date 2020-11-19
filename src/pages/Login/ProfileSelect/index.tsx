@@ -30,7 +30,7 @@ const ProfileSelect: React.FC = () => {
                 <img alt="Imagem do Perfil" src={user.image} />
               </UserImage>
               <Typography.Text>
-                Por favor, escolha em qual sistema deseja entrar
+                Por favor, escolha em qual perfil deseja entrar
               </Typography.Text>
               <ButtonGroup>
                 <Button>Solicitante</Button>

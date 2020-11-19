@@ -21,8 +21,6 @@ class Api {
       switchMap(() => (noAuthorization ? of(null) : this.getBearerToken())),
       map((token) => (token ? { Authorization: token } : null)),
       switchMap((headers) => {
-        console.log(headers);
-
         return from(
           axios.request<T>({
             url,

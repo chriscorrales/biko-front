@@ -1,4 +1,6 @@
+import { IAddress } from './Address';
 import { IFreelancer } from './People';
+import { IVacancy } from './Vacancy';
 
 export interface IJob {
   createDate: Date;
@@ -9,6 +11,8 @@ export interface IJob {
   title: string;
   updateDate: Date;
   freelancers: IFreelancer[];
+  vacancies: IVacancy[];
+  address?: IAddress;
 }
 
 export enum enStatus {

@@ -14,7 +14,7 @@ export default createGlobalStyle`
     object-fit: cover;
   }
 
-  .ant-layout-sider-trigger {
+  .ant-layout-sider-trigger, .ant-select-item, .ant-select-dropdown {
     background: #333A41;
   }
 
@@ -34,8 +34,34 @@ export default createGlobalStyle`
     background: #20D7B2;
   }
 
+  .ant-modal-content, .ant-popover-inner-content, .ant-modal-header, .ant-popover-title {
+    background-color: #333A41;
+  }
+
+  .ant-select-selector {
+    background-color: #fff !important;
+  }
+
+  .ant-select-arrow {
+    & svg {
+      fill: #20D7B2;
+    }
+  }
+
+  .ant-select-selection-item {
+    color: #747D88;
+  }
+
+  .ant-input-number {
+    width: 100% !important;
+  }
+
   .ant-card-body {
     height: 100%;
+  }
+
+  .ant-btn, .ant-checkbox-inner {
+    border-color: #CBCFD4;
   }
 
   .ant-layout-header {

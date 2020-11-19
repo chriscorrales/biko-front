@@ -9,8 +9,9 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^1.0.0",
-    "antd": "^4.7.3",
+    "antd": "^4.8.4",
     "axios": "^0.21.0",
+    "date-fns": "^2.16.1",
     "jwt-decode": "^3.0.0",
     "mdi-react": "^7.4.0",
     "react": "^17.0.1",

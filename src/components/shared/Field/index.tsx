@@ -1,15 +1,17 @@
 import React from 'react';
-import { Form, Input } from 'antd';
+import { Form, Input, InputNumber } from 'antd';
 import { Controller, useFormContext } from 'react-hook-form';
 import { InputProps } from 'antd/lib/input/Input';
 import { FormItemProps } from 'antd/lib/form/FormItem';
 import { TextAreaProps } from 'antd/lib/input';
+import { InputNumberProps } from 'antd/lib/input-number';
 
-type ITypes = 'password' | 'textarea';
+type ITypes = 'password' | 'textarea' | 'number';
 
 interface IProps {
-  inputProps: Omit<InputProps, 'name'>;
+  inputProps?: Omit<InputProps, 'name'>;
   textAreaProps?: Omit<TextAreaProps, 'name'>;
+  numberProps?: Omit<InputNumberProps, 'name'>;
   formItemProps?: Omit<FormItemProps, 'children'>;
   name: string;
   loading?: boolean;
@@ -19,6 +21,7 @@ interface IProps {
 const Field: React.FC<IProps> = ({
   inputProps,
   textAreaProps,
+  numberProps,
   formItemProps,
   loading,
   name,
@@ -37,7 +40,6 @@ const Field: React.FC<IProps> = ({
       <Controller
         name={name}
         control={control}
-        defaultValue=""
         render={(props) => {
           if (type === 'password') {
             return <Input.Password {...inputProps} {...props} />;
@@ -47,6 +49,10 @@ const Field: React.FC<IProps> = ({
             return <Input.TextArea {...textAreaProps} {...props} />;
           }
 
+          if (type === 'number') {
+            return <InputNumber {...numberProps} {...props} />;
+          }
+
           return <Input {...inputProps} {...props} />;
         }}
       />
@@ -54,4 +60,4 @@ const Field: React.FC<IProps> = ({
   );
 };
 
-export default Field;
+export default React.memo(Field);

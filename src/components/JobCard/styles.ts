@@ -14,14 +14,27 @@ export const Container = styled.div`
   width: 100%;
 `;
 
+export const EmptyFreelance = styled.p`
+  width: 100%;
+  color: #20d7b2;
+`;
+
 export const Footer = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 8px;
+  margin-top: 8px;
+`;
+
+export const DateCreate = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const Title = styled.h1`
   color: #20d7b2;
-  font-size: 2.286em;
+  font-size: 1.5em;
   margin: 0;
   line-height: 112%;
   font-style: normal;

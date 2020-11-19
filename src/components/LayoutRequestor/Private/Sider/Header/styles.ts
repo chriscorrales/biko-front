@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -63,4 +64,17 @@ export const UserImage = styled.div`
     object-fit: cover;
     border-radius: 50px;
   }
+`;
+
+export const ContainerNewService = styled.div`
+  display: flex;
+  padding: 0 24px 10px 24px;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ButtonNewService = styled(Button)`
+  width: 100%;
+  background: linear-gradient(90deg, #20d4b1 0%, #0f4b9c 186.42%);
+  color: #fff;
 `;

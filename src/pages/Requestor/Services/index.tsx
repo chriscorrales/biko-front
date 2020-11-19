@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 import { useObservable } from 'react-use-observable';
 import { IJob } from 'interface/Job';
 import { jobService } from 'services/jobService';
-import { Row, Col, Input } from 'antd';
+import { Row, Col, Input, Button } from 'antd';
 import JobCard from 'components/JobCard';
 import { Container } from './styles';
 
