@@ -1,4 +1,6 @@
 import Yup from 'components/Util/Yup';
+import { da } from 'date-fns/locale';
+import { IJob } from 'interface/Job';
 import { Observable } from 'rxjs';
 import { apiService } from 'services/API';
 import { ICategory } from '../../interface/Category';
@@ -19,6 +21,11 @@ export const JobSchema = Yup.object().shape({
 class JobModalService {
   public listCategories(): Observable<ICategory[]> {
     return apiService.get('/category');
+  }
+
+  public updateAndCreate(data: IJob): Observable<void> {
+    console.log('aAA', data);
+    return apiService.post('/job', data);
   }
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useFormContext } from 'react-hook-form';
 
 import { Container } from './styles';
 
@@ -14,10 +15,11 @@ interface IProps
 
 const CheckPerson: React.FC<IProps> = (props) => {
   const { keyCb, optionText, svg } = props;
+  const { register } = useFormContext();
 
   return (
     <Container>
-      <input {...props} type="checkbox" id={keyCb} />
+      <input ref={register} {...props} type="checkbox" id={keyCb} />
       <label htmlFor={keyCb}>
         {svg}
         <p>{optionText}</p>

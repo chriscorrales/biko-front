@@ -1,6 +1,6 @@
 import { ModalProps } from 'antd/lib/modal';
 import { IJob } from 'interface/Job';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import Field from 'components/shared/Field';
 
 // import { Container } from './styles';
@@ -11,13 +11,15 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useObservable } from 'react-use-observable';
 import TrashCanIcon from 'mdi-react/TrashCanIcon';
 import PlusIcon from 'mdi-react/PlusIcon';
+import { IAddress } from 'interface/Address';
+import { jobService } from 'services/jobService';
 import { jobModalService, JobSchema } from './jobService';
 import SelectField from '../shared/Select/index';
 
 interface IProps extends ModalProps {
   job?: IJob;
   type: 'create' | 'update';
-  cancel?: () => void;
+  cancel: () => void;
 }
 
 const JobModal: React.FC<IProps> = ({
@@ -25,6 +27,7 @@ const JobModal: React.FC<IProps> = ({
   onCancel,
   job,
   type,
+  cancel,
 }) => {
   const methods = useForm({
     shouldFocusError: true,
@@ -38,14 +41,18 @@ const JobModal: React.FC<IProps> = ({
     name: 'vacancies',
   });
 
-  const [hasAddress, setHasAddress] = useState(!!job?.address);
+  const [hasAddress, setHasAddress] = useState(false);
 
   const addVacancy = () => {
-    append({ amount: 1 });
+    if (fields.length < 10) {
+      append({ amount: 1 });
+    }
   };
 
   const removeVacancy = () => {
-    remove(fields.length - 1);
+    if (fields.length >= 0) {
+      remove(fields.length - 1);
+    }
   };
 
   const [categories] = useObservable(
@@ -55,17 +62,48 @@ const JobModal: React.FC<IProps> = ({
   const [loading] = useState(!!categories);
 
   useEffect(() => {
+    setHasAddress(!!job?.address);
+
     if (!job) {
       addVacancy();
     }
-  }, [job]);
+  }, [job, job?.address]);
 
-  const updateSubmit = () => {
-    message.success('Alterado com sucesso');
+  const updateSubmit = (values: IJob) => {
+    if (!job) {
+      return;
+    }
+
+    const vacancies = values.vacancies.map((vacancy) => {
+      const vacancyJob = job.vacancies.find(
+        (v) => v.category?.id === vacancy.category?.id
+      );
+
+      return { ...vacancyJob, ...vacancy } ?? vacancy;
+    });
+
+    const updateJob: IJob = {
+      ...job,
+      ...values,
+      address: hasAddress
+        ? ({ ...job.address, ...values.address } as IAddress)
+        : undefined,
+      vacancies,
+    };
+
+    jobModalService.updateAndCreate(updateJob).subscribe(() => {
+      cancel();
+      jobService.loadJobs();
+      message.success('Serviço alterado com sucesso');
+    });
   };
 
-  const createSubmit = () => {
-    message.success('Criado com sucesso');
+  const createSubmit = (values: IJob) => {
+    jobModalService.updateAndCreate(values).subscribe(() => {
+      cancel();
+      jobService.loadJobs();
+      message.success('Criado com sucesso');
+    });
   };
 
   return (
@@ -74,18 +112,7 @@ const JobModal: React.FC<IProps> = ({
       visible={visible}
       onCancel={onCancel}
       destroyOnClose
-      footer={[
-        <Button onClick={onCancel} key="cancel">
-          Cancelar
-        </Button>,
-        <Button
-          onClick={type === 'create' ? createSubmit : updateSubmit}
-          key="submit"
-          type="primary"
-        >
-          {type === 'create' ? 'Cadastrar' : 'Alterar'}
-        </Button>,
-      ]}
+      footer={null}
     >
       <FormProvider {...methods}>
         <Form
@@ -122,7 +149,7 @@ const JobModal: React.FC<IProps> = ({
               <Checkbox
                 name="hasAddress"
                 onChange={(value) => setHasAddress(value.target.checked)}
-                value={hasAddress}
+                checked={hasAddress}
               >
                 Possui endereço?
               </Checkbox>
@@ -130,6 +157,16 @@ const JobModal: React.FC<IProps> = ({
 
             {hasAddress && (
               <>
+                <Col span={24}>
+                  <Field
+                    name="address.postalCode"
+                    formItemProps={{ label: 'CEP' }}
+                    inputProps={{
+                      type: 'text',
+                      placeholder: 'Insira o CEP do enderço',
+                    }}
+                  />
+                </Col>
                 <Col span={19}>
                   <Field
                     name="address.street"
@@ -260,6 +297,26 @@ const JobModal: React.FC<IProps> = ({
                 onClick={addVacancy}
               >
                 Adicionar vaga
+              </Button>
+            </Col>
+
+            <Col
+              style={{
+                display: 'flex',
+                justifyContent: 'flex-end',
+                marginTop: 24,
+              }}
+              span={24}
+            >
+              <Button
+                style={{ marginRight: 10 }}
+                onClick={onCancel}
+                key="cancel"
+              >
+                Cancelar
+              </Button>
+              <Button htmlType="submit" type="primary">
+                {type === 'create' ? 'Cadastrar' : 'Alterar'}
               </Button>
             </Col>
           </Row>

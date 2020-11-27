@@ -13,7 +13,7 @@ export const Logo = styled.div`
   height: 92px;
   display: flex;
 
-  justify-content: space-between;
+  justify-content: center;
   border-bottom: 1px #30363d solid;
   align-items: flex-end;
   padding: 24px;

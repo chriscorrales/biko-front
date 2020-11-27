@@ -11,6 +11,7 @@ import Status from 'components/shared/Status';
 import If from 'components/shared/If';
 import FreelancerSelectModal from 'components/FreelancerSelectModal';
 import JobModal from 'components/JobModal';
+import FreelancerInformation from 'components/FreelancerInformation';
 import { Container, DateCreate, EmptyFreelance, Footer, Title } from './styles';
 import ButtonIcon from '../shared/ButtonIcon/index';
 
@@ -21,6 +22,9 @@ interface IProps {
 const JobCard: React.FC<IProps> = ({ job }) => {
   const [openCandidateModal, setOpenCandidateModal] = useState(false);
   const [openJobModal, setOpenJobModal] = useState(false);
+  const [openFreelancerInformation, setOpenFreelancerInformation] = useState(
+    false
+  );
 
   const date = formatDistance(
     subDays(new Date(job.createDate), 0),
@@ -54,10 +58,19 @@ const JobCard: React.FC<IProps> = ({ job }) => {
             {date}
           </Typography.Paragraph>
         </DateCreate>
-        <AvatarGroup freelancers={job.freelancers} />
+        <AvatarGroup
+          freelancers={
+            job.selecteds?.length !== 0 ? job?.selecteds : job?.freelancers
+          }
+        />
       </Footer>
       <If condition={job.freelancers.length === 0}>
         <EmptyFreelance>Nenhum autônomo(a) se candidatou ainda</EmptyFreelance>
+      </If>
+      <If condition={job.selecteds?.length !== 0}>
+        <Button onClick={() => setOpenFreelancerInformation(true)}>
+          Ver informações de contato
+        </Button>
       </If>
       <If
         condition={
@@ -69,15 +82,23 @@ const JobCard: React.FC<IProps> = ({ job }) => {
         </Button>
       </If>
       <FreelancerSelectModal
+        key={job.id}
         job={job}
+        cancel={() => setOpenCandidateModal(false)}
         visible={openCandidateModal}
         onCancel={() => setOpenCandidateModal(false)}
       />
       <JobModal
         job={job}
+        cancel={() => setOpenJobModal(false)}
         type="update"
         visible={openJobModal}
         onCancel={() => setOpenJobModal(false)}
+      />
+      <FreelancerInformation
+        selecteds={job.selecteds}
+        visible={openFreelancerInformation}
+        onCancel={() => setOpenFreelancerInformation(false)}
       />
     </Container>
   );

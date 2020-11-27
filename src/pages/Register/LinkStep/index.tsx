@@ -1,6 +1,6 @@
-import { Button, Col, Form, Input, Row } from 'antd';
-import Field from 'components/shared/Field';
+import { Button, Col, Row } from 'antd';
 import React from 'react';
+import Field from 'components/shared/Field';
 import { stepService } from '../stepsServices';
 import { Container } from './styles';
 
@@ -8,38 +8,35 @@ interface IProps {
   display: boolean;
 }
 
-const AcessStep: React.FC<IProps> = ({ display }) => {
+const LinkStep: React.FC<IProps> = ({ display }) => {
   return (
     <Container style={display ? {} : { display: 'none' }}>
       <div>
         <Field
-          name="user.email"
-          formItemProps={{ label: 'E-mail' }}
+          name="people.github"
+          formItemProps={{ label: 'Github' }}
           inputProps={{
             type: 'text',
-            placeholder: 'Digite seu e-mail.',
+            placeholder: 'URL do seu perfil do Github',
           }}
         />
         <Field
-          type="password"
-          name="user.password"
-          formItemProps={{ label: 'Senha' }}
+          name="people.linkedin"
+          formItemProps={{ label: 'Linkedin' }}
           inputProps={{
             type: 'text',
-            placeholder: 'Senha no com no minímo 6 digítos',
+            placeholder: 'URL do seu perfil do Linkedin',
           }}
         />
         <Field
-          type="password"
-          name="user.password2"
-          formItemProps={{ label: 'Confirme a senha' }}
+          name="people.facebook"
+          formItemProps={{ label: 'Facebook' }}
           inputProps={{
             type: 'text',
-            placeholder: 'Digite a senha novamente',
+            placeholder: 'URL do seu perfil do Facebook',
           }}
         />
       </div>
-
       <Row gutter={8} justify="space-between">
         <Col span={10}>
           <Button block onClick={stepService.prev}>
@@ -47,8 +44,8 @@ const AcessStep: React.FC<IProps> = ({ display }) => {
           </Button>
         </Col>
         <Col span={14} style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <Button type="primary" ghost block htmlType="submit">
-            Finalizar
+          <Button type="primary" ghost block onClick={stepService.next}>
+            Próximo
           </Button>
         </Col>
       </Row>
@@ -56,4 +53,4 @@ const AcessStep: React.FC<IProps> = ({ display }) => {
   );
 };
 
-export default AcessStep;
+export default LinkStep;

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Steps } from 'antd';
 import Key from 'mdi-react/KeyIcon';
-import BadgeAccountHorizontal from 'mdi-react/BadgeAccountHorizontalIcon';
 import Home from 'mdi-react/HomeIcon';
 import Briefcase from 'mdi-react/BriefcaseIcon';
+import LinkVariantIcon from 'mdi-react/LinkVariantIcon';
 import Account from 'mdi-react/AccountIcon';
 import { useObservable } from 'react-use-observable';
 import { stepService } from '../stepsServices';
@@ -14,16 +14,16 @@ const steps = [
     icon: <Account />,
   },
   {
-    title: 'Documento',
-    icon: <BadgeAccountHorizontal />,
-  },
-  {
     title: 'Endereço',
     icon: <Home />,
   },
   {
     title: 'Perfil de Conta',
     icon: <Briefcase />,
+  },
+  {
+    title: 'Links',
+    icon: <LinkVariantIcon />,
   },
   {
     title: 'Acesso',
@@ -46,7 +46,7 @@ const StepsVertical: React.FC = () => {
       style={{ height: '100%' }}
     >
       {steps.map((step) => (
-        <Steps.Step title={step.title} icon={step.icon} />
+        <Steps.Step key={step.title} title={step.title} icon={step.icon} />
       ))}
     </Steps>
   );

@@ -33,19 +33,21 @@ const Login: React.FC = () => {
         return;
       }
 
-      if (user.requestorId && user.freelancerId) {
+      userService.setUser(user);
+
+      if (user.requestor && user.freelancer) {
         history.push('/profile');
+        return;
       }
 
-      if (user.requestorId) {
+      if (user.requestor) {
         history.push('/requestor/home');
+        return;
       }
 
-      if (user.freelancerId) {
+      if (user.freelancer) {
         history.push('/freelancer/home');
       }
-
-      userService.setUser(user);
     });
   };
 

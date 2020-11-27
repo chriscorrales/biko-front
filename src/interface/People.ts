@@ -29,8 +29,15 @@ export enum enPersonType {
 export interface IFreelancer {
   id: string;
   people: IPeople;
-  category?: ICategory;
+  categorys?: ICategory[];
   expText?: string;
+  createDate: Date;
+  updateDate: Date;
+}
+
+export interface IRequestor {
+  id: string;
+  people: IPeople;
   createDate: Date;
   updateDate: Date;
 }

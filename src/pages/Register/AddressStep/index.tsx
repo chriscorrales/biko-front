@@ -1,50 +1,90 @@
 import { Button, Col, Form, Input, Row } from 'antd';
+import Field from 'components/shared/Field';
 import React from 'react';
 import { stepService } from '../stepsServices';
 import { Container } from './styles';
 
-const AddressStep: React.FC = () => {
+interface IProps {
+  display: boolean;
+}
+
+const AddressStep: React.FC<IProps> = ({ display }) => {
   return (
-    <Container>
+    <Container style={display ? {} : { display: 'none' }}>
       <div>
-        <Form.Item label="CEP">
-          <Input type="text" maxLength={9} />
-        </Form.Item>
+        <Field
+          name="address.postalCode"
+          formItemProps={{ label: 'CEP' }}
+          inputProps={{
+            type: 'text',
+            placeholder: 'Insira o CEP do enderço',
+          }}
+        />
         <Row gutter={8}>
           <Col span={19}>
-            <Form.Item label="Endereço">
-              <Input type="text" />
-            </Form.Item>
+            <Field
+              name="address.street"
+              formItemProps={{ label: 'Endereço' }}
+              inputProps={{
+                type: 'text',
+                placeholder: 'Insira o nome da rua ou avenida',
+              }}
+            />
           </Col>
           <Col span={5}>
-            <Form.Item label="Número">
-              <Input type="text" />
-            </Form.Item>
+            <Field
+              name="address.residenceNumber"
+              formItemProps={{ label: 'Número' }}
+              inputProps={{
+                type: 'text',
+                placeholder: 'Nº da Casa',
+              }}
+            />
           </Col>
         </Row>
         <Row gutter={8}>
           <Col span={12}>
-            <Form.Item label="Bairro">
-              <Input type="text" />
-            </Form.Item>
+            <Field
+              name="address.district"
+              formItemProps={{ label: 'Bairro' }}
+              inputProps={{
+                type: 'text',
+                placeholder: 'Digite o bairro',
+              }}
+            />
           </Col>
           <Col span={12}>
-            <Form.Item label="Complemento">
-              <Input type="text" />
-            </Form.Item>
+            <Field
+              name="address.complement"
+              formItemProps={{ label: 'Complemento' }}
+              inputProps={{
+                type: 'text',
+                placeholder: 'Ex. Apto 1',
+              }}
+            />
           </Col>
         </Row>
 
         <Row gutter={8}>
           <Col span={12}>
-            <Form.Item label="Estado">
-              <Input type="text" />
-            </Form.Item>
+            <Field
+              name="address.state"
+              formItemProps={{ label: 'Estado' }}
+              inputProps={{
+                type: 'text',
+                placeholder: 'Digite o estado',
+              }}
+            />
           </Col>
           <Col span={12}>
-            <Form.Item label="Cidade">
-              <Input type="text" />
-            </Form.Item>
+            <Field
+              name="address.city"
+              formItemProps={{ label: 'Cidade' }}
+              inputProps={{
+                type: 'text',
+                placeholder: 'Digite a cidade',
+              }}
+            />
           </Col>
         </Row>
       </div>

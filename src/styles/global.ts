@@ -64,6 +64,10 @@ export default createGlobalStyle`
     border-color: #CBCFD4;
   }
 
+  .ant-message-notice-content {
+    background-color: #333A41;
+  }
+
   .ant-layout-header {
     padding: 0;
   }

@@ -1,6 +1,7 @@
 import { Button, Col, Space, Typography } from 'antd';
 import ButtonGroup from 'antd/lib/button/button-group';
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { useObservable } from 'react-use-observable';
 import { userService } from 'services/userService';
 import { BackgroundGradientRow, CardLogin } from '../styles';
@@ -8,6 +9,7 @@ import { Container, UserImage } from './styles';
 
 const ProfileSelect: React.FC = () => {
   const [user] = useObservable(() => userService.getUser(), []);
+  const history = useHistory();
 
   if (!user) {
     return null;
@@ -33,8 +35,12 @@ const ProfileSelect: React.FC = () => {
                 Por favor, escolha em qual perfil deseja entrar
               </Typography.Text>
               <ButtonGroup>
-                <Button>Solicitante</Button>
-                <Button>Freelancer</Button>
+                <Button onClick={() => history.push('/requestor/home')}>
+                  Solicitante
+                </Button>
+                <Button onClick={() => history.push('/freelancer/home')}>
+                  Freelancer
+                </Button>
               </ButtonGroup>
             </Space>
           </Container>

@@ -16,8 +16,6 @@ const PrivateLayout: React.FC = ({ children }) => {
       >
         <Menu mode="horizontal" defaultSelectedKeys={['1']}>
           <Menu.Item key="1">Disponível</Menu.Item>
-          <Menu.Item key="2">Em progresso</Menu.Item>
-          <Menu.Item key="3">Realizados</Menu.Item>
         </Menu>
         <UserInfo />
       </Layout.Header>

@@ -16,15 +16,15 @@ export const Container = styled.div`
     display: none;
 
     &:checked + label {
-      border: 1px solid #30a6a6;
+      border: 1px solid #20d7b2;
 
       & svg {
-        fill: #30a6a6;
+        fill: #20d7b2;
       }
 
       & p,
       span {
-        color: #30a6a6;
+        color: #20d7b2;
       }
     }
   }
@@ -54,8 +54,6 @@ export const Container = styled.div`
       border: 1px solid #ccc;
       box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.15);
       transition: box-shadow 0.15s linear, transform 0.15s linear;
-
-      transform: scale(1.01);
     }
 
     p {

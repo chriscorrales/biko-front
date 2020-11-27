@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import StarIcon from 'mdi-react/StarIcon';
 import BellOutlineIcon from 'mdi-react/BellOutlineIcon';
 import BikoLogo from 'components/shared/icons/BikoLogo';
-import { Badge, Button } from 'antd';
+import { Badge } from 'antd';
 import { useObservable } from 'react-use-observable';
 import { userService } from 'services/userService';
 import JobModal from 'components/JobModal';
@@ -29,12 +29,6 @@ const Header: React.FC = () => {
 
   return (
     <Container>
-      <Logo>
-        <BikoLogo />
-        <Badge overflowCount={9} count={7}>
-          <BellOutlineIcon size="28" />
-        </Badge>
-      </Logo>
       <User>
         <UserImage>
           <img src={user.image} />
@@ -54,6 +48,7 @@ const Header: React.FC = () => {
       </ContainerNewService>
       <JobModal
         onCancel={() => setOpenModal(false)}
+        cancel={() => setOpenModal(false)}
         type="create"
         visible={openModal}
       />

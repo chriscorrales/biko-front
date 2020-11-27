@@ -3,6 +3,7 @@ import CheckCircleIcon from 'mdi-react/CheckCircleIcon';
 import { IFreelancer } from 'interface/People';
 import AccountBox from 'mdi-react/AccountBoxIcon';
 import { Popover } from 'antd';
+import { useFormContext } from 'react-hook-form';
 import PopoverProfile from '../PopoverProfile/index';
 import {
   Button,
@@ -24,10 +25,17 @@ interface IProps
 
 const CheckboxFreelancer: React.FC<IProps> = (props) => {
   const { keyCb, candidate } = props;
+  const { register } = useFormContext();
 
   return (
     <Container>
-      <input {...props} type="checkbox" id={keyCb} />
+      <input
+        ref={register}
+        value={candidate.id}
+        {...props}
+        type="checkbox"
+        id={keyCb}
+      />
       <label htmlFor={keyCb}>
         <div className="selected">
           <CheckCircleIcon />

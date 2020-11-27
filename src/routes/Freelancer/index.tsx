@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
-import ServicesPage from '../../pages/Requestor/Services';
+import ServicesPage from '../../pages/Freelancer/Services';
 import PrivateRoute from './PrivateRoute';
 
 type RoutesRequestor = {

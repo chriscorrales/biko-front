@@ -9,6 +9,11 @@ export const Container = styled.div`
 
 export const SelectPerson = styled.div`
   display: flex;
+  margin-top: 8px;
   justify-content: space-between;
   flex-flow: row wrap;
+`;
+
+export const Label = styled.span`
+  color: #20d7b2;
 `;

@@ -2,14 +2,14 @@ import { BehaviorSubject } from 'rxjs';
 
 export enum enStep {
   PROFILE = 0,
-  DOCUMENT = 1,
-  ADDRESS = 2,
-  PERSON = 3,
+  ADDRESS = 1,
+  PERSON = 2,
+  LINK = 3,
   ACESS = 4,
 }
 
 class StepService {
-  private current = new BehaviorSubject<enStep>(3);
+  private current = new BehaviorSubject<enStep>(0);
 
   public next = () => {
     const current = this.current.value;
